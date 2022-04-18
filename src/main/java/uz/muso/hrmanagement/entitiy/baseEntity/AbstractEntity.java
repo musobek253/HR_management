@@ -1,4 +1,4 @@
-package uz.muso.hrmanagement.entitiy;
+package uz.muso.hrmanagement.entitiy.baseEntity;
 
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -29,7 +29,7 @@ public abstract class AbstractEntity {
 
 
     @CreationTimestamp
-    @Column(updatable = false)// yanatilgan vaqtni o'zgartirishga ruxsat bermaydi
+    @Column(updatable = false)// yaratilgan vaqtni o'zgartirishga ruxsat bermaydi
     private Timestamp createdAt; //qachon qo'shilsa o'sh vaqtni oladi
 
 
