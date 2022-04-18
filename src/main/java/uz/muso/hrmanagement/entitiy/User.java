@@ -24,9 +24,6 @@ import java.util.Set;
 @Entity(name = "users")
 public class User extends AbstractEntity implements UserDetails {
 
-    @Column(unique = true)
-    private String username;
-
     @Column(nullable = false)
     private String lastName;
 
@@ -40,7 +37,7 @@ public class User extends AbstractEntity implements UserDetails {
     @Column(unique = true)
     private String email;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany()
     private Set<Role> roles;// bu yerda userning rolari yani director va director ham xodim
 
     private String verifyCode;// emayilga tasdiqlash uchun yuboriladigan code
@@ -60,7 +57,7 @@ public class User extends AbstractEntity implements UserDetails {
 
     @Override
     public String getUsername() {
-        return email;
+        return this.email;
     }
 
     @Override
@@ -83,10 +80,9 @@ public class User extends AbstractEntity implements UserDetails {
         return this.enabled;
     }
 
-    public User(String username, String password, @Email String email, Set<Role> roles, String position, boolean enabled) {
-        this.username = username;
-        this.password = password;
+    public User(String password, @Email String email, Set<Role> roles, String position, boolean enabled) {
         this.email = email;
+        this.password = password;
         this.roles = roles;
         this.position = position;
         this.enabled = enabled;
