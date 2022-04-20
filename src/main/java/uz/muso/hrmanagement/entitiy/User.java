@@ -14,10 +14,9 @@ import java.util.Collection;
 import java.util.Objects;
 import java.util.Set;
 
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
+
+@EqualsAndHashCode(callSuper = true)
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)// auditing qilish uchun ishlatiladi
@@ -42,7 +41,7 @@ public class User extends AbstractEntity implements UserDetails {
 
     private String verifyCode;// emayilga tasdiqlash uchun yuboriladigan code
 
-    private String position;
+    private String position;//yani bu lavozimi
 
     private boolean accountNonExpired = true;//hisob muddati tugamaganmi
     private boolean accountNonLocked = true;//hisob blocklanmaganmi
@@ -88,16 +87,5 @@ public class User extends AbstractEntity implements UserDetails {
         this.enabled = enabled;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        User user = (User) o;
-        return getId() != null && Objects.equals(getId(), user.getId());
-    }
 
-    @Override
-    public int hashCode() {
-        return getClass().hashCode();
-    }
 }

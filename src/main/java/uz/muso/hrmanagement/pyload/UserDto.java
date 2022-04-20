@@ -9,11 +9,12 @@ import java.util.Set;
 
 @Data
 public class UserDto implements Serializable {
-    private final String username;
     private final String lastName;
     private final String firstName;
     private final String password;
     @Email(message = "Emailni to'g'ri kiriting")
     private final String email;
-    private final Set<RoleDto> roles;
+    private final Integer roleId;
+    private final String position;
+
 }
