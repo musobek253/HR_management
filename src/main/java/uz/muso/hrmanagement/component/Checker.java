@@ -56,5 +56,18 @@ public class Checker {
             }
         return false;
     }
+    public boolean checkAdmin() {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Optional<User> userOptional = userRepository.findById(user.getId());
+        if (userOptional.isPresent()) {
+            Set<Role> roles = userOptional.get().getRoles();
+            for (Role roleApp : roles) {
+                if (roleApp.getRoleName().name().equals(RoleName.ROLE_ADMIN.name()))
+                    return true;
+            }
+
+        }
+        return false;
+    }
 }
 

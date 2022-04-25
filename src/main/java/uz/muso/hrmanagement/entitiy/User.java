@@ -21,7 +21,7 @@ import java.util.Set;
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)// auditing qilish uchun ishlatiladi
 @Entity(name = "users")
-public class User extends AbstractEntity implements UserDetails {
+public class User extends AbstractEntity implements UserDetails{
 
     @Column(nullable = false)
     private String lastName;
@@ -36,7 +36,7 @@ public class User extends AbstractEntity implements UserDetails {
     @Column(unique = true)
     private String email;
 
-    @ManyToMany()
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;// bu yerda userning rolari yani director va director ham xodim
 
     private String verifyCode;// emayilga tasdiqlash uchun yuboriladigan code

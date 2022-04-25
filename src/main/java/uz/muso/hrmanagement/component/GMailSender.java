@@ -28,7 +28,7 @@ public class GMailSender {
 
 
     public boolean mailTextAddEmployer(String email, String code, String password) throws MessagingException {
-        String link = "http://localhost:80/api/user/verifyEmail?email=" + email + "&code=" + code;
+        String link = "http://localhost:80/api/v1/user/verifyEmail?email=" + email + "&code=" + code;
 
         String text = "<a href=\"" + link + "\">Emailni tasdiqlash</a>\n" +
                 "<br>\n" +

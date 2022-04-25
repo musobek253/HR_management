@@ -10,4 +10,6 @@ import java.util.UUID;
 public interface UserRepository extends JpaRepository<User, UUID> {
     Optional<User> findAllByEmail(@Email(message = "Emailni to'g'ri kiriting") String email);
     boolean existsAllByEmail(@Email(message = "Emailni to'g'ri kiriting") String email);
+
+    Optional<User> findByEmailAndVerifyCode(String email, String code);
 }

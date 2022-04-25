@@ -6,10 +6,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public enum RoleName {
-    ROLE_DIRECTOR(4),// bu dirictor
-    ROLE_MANAGER(3),// bu manager
-    ROLE_EMPLOYEE(2),
-    ROLE_USER(1);
+    ROLE_DIRECTOR(5),// bu dirictor
+    ROLE_MANAGER(4),// bu manager
+    ROLE_EMPLOYEE(3),
+    ROLE_USER(2),
+    ROLE_ADMIN(1);
+
 
 
     private int count;
